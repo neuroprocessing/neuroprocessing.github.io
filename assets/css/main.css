@@ -1,0 +1,101 @@
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  background: #0e0e11;
+  color: #eaeaf0;
+}
+
+header {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: #111;
+}
+
+nav a {
+  color: #9aa4ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.content {
+  max-width: 900px;
+  margin: auto;
+  padding: 3rem 2rem;
+}
+
+.project {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.project h3 {
+  margin-top: 0;
+  font-weight: 600;
+}
+
+.project-meta {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-bottom: 1rem;
+}
+
+.project ul {
+  padding-left: 1.2rem;
+}
+
+.project-links a {
+  color: #9aa4ff;
+  text-decoration: none;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+.project-status {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.project-status.ongoing {
+  background: rgba(255,170,0,0.15);
+  color: #ffb347;
+}
+
+.project-status.published {
+  background: rgba(0,200,120,0.15);
+  color: #5dffb3;
+}
