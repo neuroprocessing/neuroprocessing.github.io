@@ -3,8 +3,8 @@
   --bg-950: #060910;
   --bg-900: #0a0f1c;
   --bg-850: #111a2b;
-  --surface: rgba(14, 24, 40, 0.78);
-  --surface-strong: rgba(10, 18, 32, 0.9);
+  --surface: rgba(10, 20, 36, 0.46);
+  --surface-strong: rgba(8, 16, 30, 0.56);
   --text-100: #f2f7ff;
   --text-200: #c7d3e9;
   --text-300: #94a4c0;
@@ -51,10 +51,14 @@ body {
   color: var(--text-100);
   line-height: 1.65;
   min-height: 100vh;
-  position: relative;
-  isolation: isolate;
   --page-background-image: url("../images/Background.png");
-  background: linear-gradient(155deg, var(--bg-950), var(--bg-900) 42%, var(--bg-850) 100%);
+  background:
+    linear-gradient(rgba(4, 8, 15, 0.28), rgba(4, 8, 15, 0.38)),
+    radial-gradient(circle at 15% 10%, var(--glow-brand), transparent 38%),
+    radial-gradient(circle at 82% 20%, var(--glow-accent), transparent 44%),
+    var(--page-background-image) center / cover no-repeat,
+    linear-gradient(155deg, var(--bg-950), var(--bg-900) 42%, var(--bg-850) 100%);
+  background-attachment: fixed;
 }
 
 body.research-page {
@@ -63,26 +67,6 @@ body.research-page {
 
 body.contact-page {
   --page-background-image: url("../images/Background-Contact-Page.png");
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  background: var(--page-background-image) center / cover no-repeat;
-  filter: saturate(1.25) contrast(1.12) brightness(1.35);
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(rgba(4, 8, 15, 0.12), rgba(4, 8, 15, 0.2)),
-    radial-gradient(circle at 15% 10%, var(--glow-brand), transparent 38%),
-    radial-gradient(circle at 82% 20%, var(--glow-accent), transparent 44%);
 }
 
 a {
@@ -103,7 +87,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(6, 9, 16, 0.86);
+  background: rgba(6, 9, 16, 0.45);
   border-bottom: 1px solid rgba(172, 206, 255, 0.18);
   backdrop-filter: blur(12px);
 }
