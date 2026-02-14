@@ -52,8 +52,28 @@ body {
   line-height: 1.65;
   min-height: 100vh;
   background:
+    linear-gradient(rgba(5, 10, 18, 0.78), rgba(5, 10, 18, 0.78)),
     radial-gradient(circle at 15% 10%, var(--glow-brand), transparent 38%),
     radial-gradient(circle at 82% 20%, var(--glow-accent), transparent 44%),
+    url("../images/Background.png") center / cover fixed no-repeat,
+    linear-gradient(155deg, var(--bg-950), var(--bg-900) 42%, var(--bg-850) 100%);
+}
+
+body.research-page {
+  background:
+    linear-gradient(rgba(5, 10, 18, 0.78), rgba(5, 10, 18, 0.78)),
+    radial-gradient(circle at 15% 10%, var(--glow-brand), transparent 38%),
+    radial-gradient(circle at 82% 20%, var(--glow-accent), transparent 44%),
+    url("../images/Background-Research-Page.png") center / cover fixed no-repeat,
+    linear-gradient(155deg, var(--bg-950), var(--bg-900) 42%, var(--bg-850) 100%);
+}
+
+body.contact-page {
+  background:
+    linear-gradient(rgba(5, 10, 18, 0.78), rgba(5, 10, 18, 0.78)),
+    radial-gradient(circle at 15% 10%, var(--glow-brand), transparent 38%),
+    radial-gradient(circle at 82% 20%, var(--glow-accent), transparent 44%),
+    url("../images/Background-Contact-Page.png") center / cover fixed no-repeat,
     linear-gradient(155deg, var(--bg-950), var(--bg-900) 42%, var(--bg-850) 100%);
 }
 
@@ -409,3 +429,4 @@ h2 {
     padding-bottom: var(--space-6);
   }
 }
+
