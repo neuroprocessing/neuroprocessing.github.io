@@ -303,7 +303,6 @@
   }
 
   function autoSlide() {
-    if (isPaused) return;
     nextProject();
   }
 
@@ -333,9 +332,7 @@
   arrowLeft.addEventListener("click", prevProject);
   arrowRight.addEventListener("click", nextProject);
 
-  // Pause on hover
-  cardEl.addEventListener("mouseenter", pauseAutoSlide);
-  cardEl.addEventListener("mouseleave", resumeAutoSlide);
+
 
   // Keyboard support (optional but cool)
   document.addEventListener("keydown", (e) => {

@@ -560,4 +560,19 @@ h2 {
   opacity: 0;
   transform: translateX(-25px);
 }
+.card,
+.project-carousel,
+.cta-card {
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover,
+.project-carousel:hover,
+.cta-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow:
+    0 0 12px rgba(0, 180, 255, 0.35),
+    0 0 35px rgba(0, 180, 255, 0.18);
+}
 
