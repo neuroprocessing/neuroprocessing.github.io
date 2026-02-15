@@ -767,4 +767,32 @@ h2 {
     opacity: 0.7;
   }
 }
+/* ============================================
+   Fade-in Animation (Scroll Reveal)
+============================================ */
+.fade-section {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.fade-section.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   Glow Hover Effect (Blue Neon)
+============================================ */
+.glow-hover {
+  transition: transform 0.35s ease, box-shadow 0.35s ease, outline 0.35s ease;
+}
+
+.glow-hover:hover {
+  transform: translateY(-4px) scale(1.01);
+  outline: 1px solid rgba(0, 180, 255, 0.55);
+  box-shadow:
+    0 0 14px rgba(0, 180, 255, 0.35),
+    0 0 40px rgba(0, 180, 255, 0.18);
+}
 
