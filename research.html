@@ -10,10 +10,252 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    /* ================================
+       EXTRA RESEARCH PAGE STYLES
+    ================================== */
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: all 0.9s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    .featured-slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      margin-top: 18px;
+    }
+
+    .slider-track {
+      display: flex;
+      transition: transform 0.65s ease;
+    }
+
+    .project-slide {
+      min-width: 100%;
+      padding: 28px;
+      box-sizing: border-box;
+    }
+
+    .slide-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.22);
+      transition: 0.35s ease;
+    }
+
+    .slide-card:hover {
+      transform: scale(1.015);
+      border-color: rgba(0,190,210,0.7);
+      box-shadow: 0 0 0 2px rgba(0,190,210,0.25), 0 22px 65px rgba(0,0,0,0.28);
+    }
+
+    .slide-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .slide-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .slide-desc {
+      margin-top: 10px;
+      color: rgba(255,255,255,0.75);
+      max-width: 70ch;
+      line-height: 1.65;
+    }
+
+    .slide-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.85);
+    }
+
+    .tag.team {
+      border-color: rgba(0,190,210,0.65);
+      color: rgba(0,190,210,0.95);
+      background: rgba(0,190,210,0.08);
+    }
+
+    .tag.individual {
+      border-color: rgba(140,160,255,0.55);
+      color: rgba(170,190,255,0.95);
+      background: rgba(120,140,255,0.08);
+    }
+
+    .tag.owner {
+      border-color: rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8);
+    }
+
+    .slider-controls {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 14px;
+      pointer-events: none;
+    }
+
+    .slider-btn {
+      pointer-events: all;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.35);
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: 0.25s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .slider-btn:hover {
+      transform: scale(1.07);
+      border-color: rgba(0,190,210,0.8);
+      box-shadow: 0 0 0 2px rgba(0,190,210,0.18);
+    }
+
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .dot.active {
+      background: rgba(0,190,210,0.9);
+      box-shadow: 0 0 10px rgba(0,190,210,0.45);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 18px;
+      transition: 0.35s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      border-color: rgba(0,190,210,0.75);
+      box-shadow: 0 0 0 2px rgba(0,190,210,0.22), 0 18px 60px rgba(0,0,0,0.18);
+    }
+
+    .project-card h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      color: white;
+      font-weight: 600;
+    }
+
+    .project-card p {
+      margin-top: 10px;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .meta-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .small-tag {
+      font-size: 0.78rem;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.82);
+    }
+
+    .small-tag.team {
+      border-color: rgba(0,190,210,0.55);
+      color: rgba(0,190,210,0.95);
+      background: rgba(0,190,210,0.08);
+    }
+
+    .small-tag.individual {
+      border-color: rgba(140,160,255,0.55);
+      color: rgba(170,190,255,0.95);
+      background: rgba(120,140,255,0.08);
+    }
+
+    .small-tag.status {
+      border-color: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.75);
+    }
+
+    .small-tag.status.active {
+      border-color: rgba(0,255,140,0.35);
+      color: rgba(0,255,140,0.8);
+      background: rgba(0,255,140,0.06);
+    }
+
+    .small-tag.status.planned {
+      border-color: rgba(255,200,0,0.35);
+      color: rgba(255,200,0,0.8);
+      background: rgba(255,200,0,0.06);
+    }
+  </style>
 </head>
 
-<body class="research-page">
-
+<body>
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html" aria-label="Neuroprocessing home">
@@ -36,354 +278,380 @@
 </header>
 
 <main>
-
   <!-- HERO -->
   <section class="hero">
     <div class="container hero-grid">
       <div class="fade-in">
-        <p class="eyebrow">Research Program</p>
-        <h1>Preclinical neuroscience systems powered by reproducible AI pipelines.</h1>
+        <p class="eyebrow">Research</p>
+        <h1>Reproducible neuroscience methods, neuroengineering systems, and AI-enabled workflows.</h1>
         <p class="hero-lede">
-          Neuroprocessing develops experimental and computational infrastructures that connect
-          <strong>behavior</strong>, <strong>electrophysiology</strong>, <strong>neuroimaging</strong>, and
-          <strong>molecular validation</strong> into a single coherent research workflow.
+          Neuroprocessing develops interdisciplinary research projects bridging computational neuroscience,
+          neurotechnology, behavioral neuroscience, and open scientific infrastructure.
         </p>
-
-        <div class="meta-row" style="margin-top:16px;">
-          <span class="pill">Rodent models</span>
-          <span class="pill">EEG + PET</span>
-          <span class="pill">Behavior + histology</span>
-          <span class="pill">AI pipelines</span>
-        </div>
       </div>
 
-      <aside class="hero-panel fade-in" aria-label="Research approach">
+      <aside class="hero-panel fade-in">
         <div class="panel-header">
-          <strong>Core Approach</strong>
-          <span class="panel-note">Systems-first</span>
+          <strong>Research Philosophy</strong>
+          <span class="panel-note">Dry + Wet Lab Integration</span>
         </div>
         <ul class="signal-list">
-          <li><strong>Reproducible pipelines</strong> (QC, reporting, versioning).</li>
-          <li><strong>Cross-modal integration</strong> of behavior + neural signals.</li>
-          <li><strong>Biological validation</strong> through tissue and molecular analysis.</li>
-          <li><strong>Translational direction</strong> toward deployable neurotechnology.</li>
+          <li><strong>Validated pipelines</strong> with transparent assumptions and QC.</li>
+          <li><strong>Interdisciplinary execution</strong> combining engineering + biology.</li>
+          <li><strong>Translational direction</strong> from rodent models to neurotech systems.</li>
         </ul>
       </aside>
     </div>
   </section>
 
-
-  <!-- DOMAINS -->
+  <!-- FEATURED SLIDER -->
   <section class="section">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="eyebrow">Core Research Domains</p>
-        <h2>Where computation meets biology.</h2>
-        <p class="section-intro">
-          Our work is built around an end-to-end experimental loop: design experiments, acquire high-quality signals,
-          model behavior and brain dynamics, then validate with molecular and tissue-level evidence.
-        </p>
+    <div class="container fade-in">
+      <div class="section-header">
+        <p class="eyebrow">Featured Projects</p>
+        <h2>Flagship directions shaping our roadmap.</h2>
       </div>
 
-      <div class="card-grid">
-        <article class="card fade-in">
-          <h3>Neural Engineering & Signal Systems</h3>
-          <p>EEG acquisition design, AFE optimization, SNR/THD benchmarking, and embedded hardware prototyping.</p>
-          <div class="meta-row">
-            <span class="pill">Arduino</span>
-            <span class="pill">Raspberry Pi</span>
-            <span class="pill">AFE design</span>
+      <div class="featured-slider">
+        <div class="slider-track" id="sliderTrack">
+
+          <!-- Slide 1 -->
+          <div class="project-slide">
+            <div class="slide-card">
+              <div class="slide-top">
+                <div>
+                  <h3 class="slide-title">Animal Study Management Platform</h3>
+                  <p class="slide-desc">
+                    A professional software framework for managing rodent neuroscience studies:
+                    animal registry, randomization, protocol workflows, behavioral tests, data storage,
+                    backups, and statistical reporting.
+                  </p>
+
+                  <div class="slide-tags">
+                    <span class="tag team">Team Project</span>
+                    <span class="tag owner">Ali Mirzakhani + Elaheh Haghani-Samani</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">PyQt</span>
+                    <span class="tag">Reproducibility</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="project-slide">
+            <div class="slide-card">
+              <div class="slide-top">
+                <div>
+                  <h3 class="slide-title">Motor Skill Learning + Wireless Electrophysiology</h3>
+                  <p class="slide-desc">
+                    A translational rodent neuroengineering project combining behavioral motor learning tasks
+                    with wireless electrophysiology acquisition and automated analysis pipelines.
+                  </p>
+
+                  <div class="slide-tags">
+                    <span class="tag team">Team Project</span>
+                    <span class="tag owner">Ali Mirzakhani + Elaheh Haghani-Samani</span>
+                    <span class="tag">EEG / LFP</span>
+                    <span class="tag">Arduino + Raspberry Pi</span>
+                    <span class="tag">Behavioral Neuroscience</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="project-slide">
+            <div class="slide-card">
+              <div class="slide-top">
+                <div>
+                  <h3 class="slide-title">Alzheimer’s Disease: Implicit Memory & Cognitive Dynamics</h3>
+                  <p class="slide-desc">
+                    A neuroscience research direction focused on implicit memory impairments in
+                    amyloid-beta rodent models, integrating behavioral phenotyping with signal processing
+                    and computational inference.
+                  </p>
+
+                  <div class="slide-tags">
+                    <span class="tag team">Team Project</span>
+                    <span class="tag owner">Ali Mirzakhani + Elaheh Haghani-Samani</span>
+                    <span class="tag">Rodent Model</span>
+                    <span class="tag">Cognition</span>
+                    <span class="tag">Signal Processing</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="project-slide">
+            <div class="slide-card">
+              <div class="slide-top">
+                <div>
+                  <h3 class="slide-title">State-Space Neural Dynamics Pipelines</h3>
+                  <p class="slide-desc">
+                    A computational neuroscience pipeline suite for state-space modeling,
+                    latent dynamics inference, and interpretable time-series analysis across
+                    electrophysiology and behavioral signals.
+                  </p>
+
+                  <div class="slide-tags">
+                    <span class="tag individual">Individual Project</span>
+                    <span class="tag owner">Ali Mirzakhani</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">ML / AI</span>
+                    <span class="tag">Time-Series</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="project-slide">
+            <div class="slide-card">
+              <div class="slide-top">
+                <div>
+                  <h3 class="slide-title">Neuroinflammation and Translational Pharmacology</h3>
+                  <p class="slide-desc">
+                    Experimental research on neuroinflammation and neurodegenerative models,
+                    integrating behavioral assays with tissue processing, gene expression analysis,
+                    and pharmacological intervention strategies.
+                  </p>
+
+                  <div class="slide-tags">
+                    <span class="tag individual">Individual Project</span>
+                    <span class="tag owner">Elaheh Haghani-Samani</span>
+                    <span class="tag">In vivo</span>
+                    <span class="tag">In vitro</span>
+                    <span class="tag">Molecular Biology</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Controls -->
+        <div class="slider-controls">
+          <button class="slider-btn" id="prevBtn" aria-label="Previous project">&#10094;</button>
+          <button class="slider-btn" id="nextBtn" aria-label="Next project">&#10095;</button>
+        </div>
+      </div>
+
+      <div class="slider-dots" id="sliderDots"></div>
+    </div>
+  </section>
+
+  <!-- PROJECT GRID -->
+  <section class="section">
+    <div class="container fade-in">
+      <div class="section-header">
+        <p class="eyebrow">All Research Directions</p>
+        <h2>Projects and infrastructure under development.</h2>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project-card">
+          <h3>Rodent Sucrose Preference Test Manager</h3>
+          <p>
+            A lightweight open-source software tool for standardized sucrose test data entry,
+            animal metadata tracking, group comparison, and reproducible export.
+          </p>
+          <div class="meta-line">
+            <span class="small-tag individual">Individual</span>
+            <span class="small-tag">Ali Mirzakhani</span>
+            <span class="small-tag status planned">Planned Release</span>
+            <span class="small-tag">Open Tool</span>
           </div>
         </article>
 
-        <article class="card fade-in">
-          <h3>Behavioral Neuroscience & Motor Skill</h3>
-          <p>Quantitative analysis of motor learning, behavior dynamics, and task-dependent performance trajectories.</p>
-          <div class="meta-row">
-            <span class="pill">Motor skill</span>
-            <span class="pill">Tracking</span>
-            <span class="pill">Phenotyping</span>
+        <article class="project-card">
+          <h3>Professional Animal Study Workflow System</h3>
+          <p>
+            A scalable study-management platform integrating animal registry, protocols,
+            behavioral tests, longitudinal records, backups, and reproducible reporting.
+          </p>
+          <div class="meta-line">
+            <span class="small-tag team">Team</span>
+            <span class="small-tag">Ali + Elaheh</span>
+            <span class="small-tag status active">Active Development</span>
+            <span class="small-tag">Software Platform</span>
           </div>
         </article>
 
-        <article class="card fade-in">
-          <h3>Neuroimaging Quantification</h3>
-          <p>PET atlas-based SUVR pipelines with reproducible registration and region-level quantification.</p>
-          <div class="meta-row">
-            <span class="pill">PET</span>
-            <span class="pill">SUVR</span>
-            <span class="pill">Atlas-based</span>
+        <article class="project-card">
+          <h3>Behavior + EEG Synchronization Framework</h3>
+          <p>
+            A modular pipeline for aligning behavioral video annotations with electrophysiology
+            streams, enabling synchronized time-series modeling and reproducible analysis.
+          </p>
+          <div class="meta-line">
+            <span class="small-tag team">Team</span>
+            <span class="small-tag status planned">Roadmap</span>
+            <span class="small-tag">EEG + Behavior</span>
           </div>
         </article>
 
-        <article class="card fade-in">
-          <h3>Molecular & Tissue Validation</h3>
-          <p>Histology, cell culture, and molecular assays to connect observed phenotypes to biological mechanisms.</p>
-          <div class="meta-row">
-            <span class="pill">Histology</span>
-            <span class="pill">Cell culture</span>
-            <span class="pill">Systems biology</span>
+        <article class="project-card">
+          <h3>Closed-Loop Neuroengineering Prototype</h3>
+          <p>
+            A future translational direction for closed-loop stimulation and assistive
+            neurotechnology systems grounded in validated rodent neuroscience experiments.
+          </p>
+          <div class="meta-line">
+            <span class="small-tag team">Team</span>
+            <span class="small-tag status planned">Concept Phase</span>
+            <span class="small-tag">Neurotech</span>
           </div>
         </article>
+
+        <article class="project-card">
+          <h3>Neural Signal Processing Pipeline Suite</h3>
+          <p>
+            A set of reproducible preprocessing and QC pipelines for EEG/LFP signals,
+            including SNR analysis, transient detection, and nonlinear distortion metrics.
+          </p>
+          <div class="meta-line">
+            <span class="small-tag individual">Individual</span>
+            <span class="small-tag">Ali Mirzakhani</span>
+            <span class="small-tag status active">Ongoing</span>
+            <span class="small-tag">Python</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <h3>Molecular Profiling of Neurodegeneration Models</h3>
+          <p>
+            Wet-lab direction focused on tissue preparation, protein detection,
+            gene expression analysis, and cell culture in translational rodent models.
+          </p>
+          <div class="meta-line">
+            <span class="small-tag individual">Individual</span>
+            <span class="small-tag">Elaheh Haghani-Samani</span>
+            <span class="small-tag status active">Ongoing</span>
+            <span class="small-tag">Wet Lab</span>
+          </div>
+        </article>
+
       </div>
     </div>
   </section>
 
-
-  <!-- PROJECTS -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="eyebrow">Ongoing Projects</p>
-        <h2>Active projects with a long-term translational direction.</h2>
-        <p class="section-intro">
-          Each project is documented as a reproducible pipeline and is designed to be extendable for collaborations.
-          Click to expand and view objectives, methods, and expected outputs.
-        </p>
-      </div>
-
-      <div class="accordion-grid">
-
-        <!-- PROJECT 1 -->
-        <article class="accordion-card fade-in">
-          <button class="accordion-btn" aria-expanded="false">
-            <div class="accordion-title">
-              <h3>Multimodal Alzheimer’s Phenotyping in Rat Models</h3>
-              <p class="accordion-sub">
-                Motor skill training + behavioral dynamics + EEG + molecular validation.
-              </p>
-            </div>
-            <span class="accordion-icon">+</span>
-          </button>
-
-          <div class="accordion-content">
-            <p>
-              This project investigates how motor skill training modulates cognitive and neural deterioration
-              in amyloid-beta injected rat models. We combine behavioral analysis with electrophysiology and
-              tissue-level validation to generate a mechanistic interpretation.
-            </p>
-
-            <ul class="meta-list">
-              <li><strong>Model:</strong> Wistar rat, Aβ injection.</li>
-              <li><strong>Behavior:</strong> motor skill training + performance tracking.</li>
-              <li><strong>Neural data:</strong> EEG acquisition + preprocessing pipeline.</li>
-              <li><strong>Validation:</strong> histology + molecular markers.</li>
-              <li><strong>Output:</strong> reproducible multimodal dataset + analysis code.</li>
-            </ul>
-
-            <div class="meta-row">
-              <span class="pill">Behavior</span>
-              <span class="pill">EEG</span>
-              <span class="pill">Histology</span>
-              <span class="pill">Alzheimer’s model</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJECT 2 -->
-        <article class="accordion-card fade-in">
-          <button class="accordion-btn" aria-expanded="false">
-            <div class="accordion-title">
-              <h3>EEG Front-End Optimization & Signal Quality Benchmarking</h3>
-              <p class="accordion-sub">
-                SNR, THD, transient behavior, and robust analog design evaluation.
-              </p>
-            </div>
-            <span class="accordion-icon">+</span>
-          </button>
-
-          <div class="accordion-content">
-            <p>
-              We develop a rigorous engineering framework to evaluate EEG acquisition chains.
-              The project includes transient analysis, nonlinear distortion benchmarking, and noise optimization
-              for realistic electrophysiology setups.
-            </p>
-
-            <ul class="meta-list">
-              <li><strong>Focus:</strong> analog front-end modeling and validation.</li>
-              <li><strong>Metrics:</strong> SNR, THD, transient response, stability.</li>
-              <li><strong>Pipeline:</strong> automated QC + reporting tools.</li>
-              <li><strong>Goal:</strong> publish reproducible AFE evaluation framework.</li>
-            </ul>
-
-            <div class="meta-row">
-              <span class="pill">Neural engineering</span>
-              <span class="pill">SNR/THD</span>
-              <span class="pill">QC reports</span>
-              <span class="pill">Open pipeline</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJECT 3 -->
-        <article class="accordion-card fade-in">
-          <button class="accordion-btn" aria-expanded="false">
-            <div class="accordion-title">
-              <h3>PET SUVR Quantification Pipeline using SIGMA Rat Atlas</h3>
-              <p class="accordion-sub">
-                Automated registration, ROI quantification, and reproducible outputs.
-              </p>
-            </div>
-            <span class="accordion-icon">+</span>
-          </button>
-
-          <div class="accordion-content">
-            <p>
-              This project builds a standardized SUVR quantification pipeline for rat PET studies.
-              We focus on robust registration, atlas-based region extraction, and reproducible statistical reporting.
-            </p>
-
-            <ul class="meta-list">
-              <li><strong>Atlas:</strong> SIGMA Rat PET template and ROI atlas.</li>
-              <li><strong>Methods:</strong> registration + normalization + ROI extraction.</li>
-              <li><strong>Outputs:</strong> SUVR tables, QC snapshots, automated reports.</li>
-              <li><strong>Goal:</strong> reusable pipeline for PET quantification studies.</li>
-            </ul>
-
-            <div class="meta-row">
-              <span class="pill">PET</span>
-              <span class="pill">SUVR</span>
-              <span class="pill">Atlas</span>
-              <span class="pill">Reproducible imaging</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- PROJECT 4 -->
-        <article class="accordion-card fade-in">
-          <button class="accordion-btn" aria-expanded="false">
-            <div class="accordion-title">
-              <h3>Embedded Behavioral Automation Platform</h3>
-              <p class="accordion-sub">
-                Arduino + Raspberry Pi infrastructure for scalable experiments.
-              </p>
-            </div>
-            <span class="accordion-icon">+</span>
-          </button>
-
-          <div class="accordion-content">
-            <p>
-              We develop low-cost experimental automation systems to control behavioral tasks, sensor acquisition,
-              and experimental event logging. This platform aims to reduce manual workload and increase repeatability
-              across animal studies.
-            </p>
-
-            <ul class="meta-list">
-              <li><strong>Hardware:</strong> Arduino + Raspberry Pi integration.</li>
-              <li><strong>Data:</strong> synchronized acquisition + timestamped logs.</li>
-              <li><strong>Goal:</strong> open experimental automation toolkit.</li>
-              <li><strong>Future:</strong> closed-loop behavioral + neural feedback.</li>
-            </ul>
-
-            <div class="meta-row">
-              <span class="pill">Arduino</span>
-              <span class="pill">Raspberry Pi</span>
-              <span class="pill">Automation</span>
-              <span class="pill">Open hardware</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- OUTPUTS / PUBLICATIONS -->
-  <section class="section">
-    <div class="container split-grid">
-      <div class="section-header fade-in">
-        <p class="eyebrow">Scientific Outputs</p>
-        <h2>Open outputs before papers.</h2>
-        <p class="section-intro">
-          We prioritize open deliverables such as code, pipelines, documentation, and reproducible datasets.
-          Publications emerge as a natural consequence of validated outputs.
-        </p>
-      </div>
-
-      <article class="card fade-in">
-        <ul class="meta-list">
-          <li><strong>Open analysis pipelines:</strong> EEG preprocessing, PET SUVR, behavioral tracking.</li>
-          <li><strong>Reproducible reports:</strong> QC, benchmarking, dataset summaries.</li>
-          <li><strong>Open experimental infrastructure:</strong> Arduino/Raspberry Pi automation modules.</li>
-          <li><strong>Collaborative datasets:</strong> standardized formats for cross-lab reuse.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-
-  <!-- WORKFLOW -->
+  <!-- CTA -->
   <section class="section cta">
     <div class="container cta-card fade-in">
       <div>
-        <p class="eyebrow">Workflow Philosophy</p>
-        <h2>From animal experiments to publishable computational evidence.</h2>
-        <p class="section-intro">
-          We treat neuroscience as an engineering discipline: define protocols, acquire high-quality data,
-          validate assumptions, and publish complete reproducible systems.
-        </p>
+        <p class="eyebrow">Collaboration</p>
+        <h2>We welcome research partners for joint projects and open-science development.</h2>
       </div>
-
       <article class="card">
         <ul class="meta-list">
-          <li><strong>Step 1:</strong> Experimental design + standardized protocols.</li>
-          <li><strong>Step 2:</strong> Data acquisition (EEG, PET, behavior, molecular assays).</li>
-          <li><strong>Step 3:</strong> Reproducible preprocessing + quality control gates.</li>
-          <li><strong>Step 4:</strong> AI modeling + interpretability constraints.</li>
-          <li><strong>Step 5:</strong> Biological validation and cross-study replication.</li>
-          <li><strong>Step 6:</strong> Open release of code, configs, and versioned reports.</li>
+          <li><strong>Academic labs:</strong> joint validation and dataset partnerships.</li>
+          <li><strong>Postdoctoral collaboration:</strong> reproducible tool-building initiatives.</li>
+          <li><strong>Translational projects:</strong> roadmap from rodent systems to neurotechnology.</li>
         </ul>
       </article>
     </div>
   </section>
-
 </main>
 
 <footer class="site-footer">
   <div class="container">
-    <p>&copy; 2026 Neuroprocessing | Research collaborations welcome</p>
+    <p>&copy; 2026 Neuroprocessing | Open Neuroscience Systems Lab</p>
   </div>
 </footer>
 
-
-<!-- ACCORDION + FADE-IN SCRIPT -->
 <script>
-  // Accordion behavior
-  const accordionCards = document.querySelectorAll(".accordion-card");
-
-  accordionCards.forEach(card => {
-    const btn = card.querySelector(".accordion-btn");
-    const content = card.querySelector(".accordion-content");
-    const icon = card.querySelector(".accordion-icon");
-
-    btn.addEventListener("click", () => {
-      const expanded = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", !expanded);
-
-      if (!expanded) {
-        content.style.maxHeight = content.scrollHeight + "px";
-        icon.textContent = "–";
-      } else {
-        content.style.maxHeight = "0px";
-        icon.textContent = "+";
-      }
-    });
-  });
-
-
-  // Fade-in animation on scroll
+  // ===========================
+  // FADE-IN ON SCROLL
+  // ===========================
   const fadeElements = document.querySelectorAll(".fade-in");
 
-  const observer = new IntersectionObserver((entries) => {
+  const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+        entry.target.classList.add("show");
       }
     });
   }, { threshold: 0.15 });
 
-  fadeElements.forEach(el => observer.observe(el));
+  fadeElements.forEach(el => fadeObserver.observe(el));
+
+  // ===========================
+  // SLIDER SYSTEM
+  // ===========================
+  const track = document.getElementById("sliderTrack");
+  const slides = document.querySelectorAll(".project-slide");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const dotsContainer = document.getElementById("sliderDots");
+
+  let currentIndex = 0;
+  let interval;
+
+  function updateSlider() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updateDots();
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlider();
+  }
+
+  function createDots() {
+    slides.forEach((_, i) => {
+      const dot = document.createElement("div");
+      dot.classList.add("dot");
+      dot.addEventListener("click", () => {
+        currentIndex = i;
+        updateSlider();
+        resetAutoSlide();
+      });
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function updateDots() {
+    const dots = document.querySelectorAll(".dot");
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  function startAutoSlide() {
+    interval = setInterval(nextSlide, 4500);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(interval);
+    startAutoSlide();
+  }
+
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    resetAutoSlide();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    resetAutoSlide();
+  });
+
+  createDots();
+  updateSlider();
+  startAutoSlide();
 </script>
 
 </body>

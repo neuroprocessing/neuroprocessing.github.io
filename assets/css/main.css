@@ -795,4 +795,14 @@ h2 {
     0 0 14px rgba(0, 180, 255, 0.35),
     0 0 40px rgba(0, 180, 255, 0.18);
 }
+.meta-note {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  transition: 0.25s ease;
+}
 
