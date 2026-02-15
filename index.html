@@ -122,47 +122,63 @@
     </div>
   </section>
 
-  <section class="section">
-	<div class="container split-grid">
-	  <div class="section-header">
-		<p class="eyebrow">Featured Research</p>
-		<h2>Active projects shaping the Neuroprocessing roadmap.</h2>
-		<p class="section-intro">
+	<section class="section">
+	  <div class="container split-grid">
+		<div class="section-header">
+		  <p class="eyebrow">Featured Research</p>
+		  <h2>Active projects shaping the Neuroprocessing roadmap.</h2>
+		  <p class="section-intro">
 			Our research spans neural engineering, behavioral neuroscience, molecular validation,
 			and reproducible computational pipelines. The projects below represent our current focus areas
 			and long-term translational direction.
-		</p>
-		<a class="text-link" href="research.html">Explore full research portfolio</a>
-	  </div>
+		  </p>
+		  <a class="text-link" href="research.html">Explore full research portfolio</a>
+		</div>
 
-	  <article class="card project-carousel slide-block" id="project-card" aria-label="Featured projects">
-		<div class="carousel-header">
+		<article class="card project-carousel slide-block" id="project-card" aria-label="Featured projects">
+		  
+		  <!-- subtle gradient hints -->
+		  <div class="carousel-fade-left"></div>
+		  <div class="carousel-fade-right"></div>
+
+		  <!-- arrows -->
+		  <button class="carousel-arrow left" id="arrow-left" aria-label="Previous project">
+			&#10094;
+		  </button>
+
+		  <button class="carousel-arrow right" id="arrow-right" aria-label="Next project">
+			&#10095;
+		  </button>
+
+		  <div class="carousel-header">
 			<h3 id="project-title">Multimodal Alzheimer’s Phenotyping</h3>
 			<span class="pill status-pill" id="project-status">Active</span>
-		</div>
+		  </div>
 
-		<p id="project-desc">
+		  <p id="project-desc">
 			Integrating behavioral motor skill analysis with electrophysiology and molecular validation
 			in preclinical Alzheimer’s disease models.
-		</p>
+		  </p>
 
-		<div class="meta-row" id="project-tags">
-		  <span class="pill">Behavior</span>
-		  <span class="pill">EEG</span>
-		  <span class="pill">Molecular</span>
-		</div>
+		  <div class="meta-row" id="project-tags">
+			<span class="pill">Behavior</span>
+			<span class="pill">EEG</span>
+			<span class="pill">Molecular</span>
+		  </div>
 
-		<a class="text-link" id="project-link" href="research.html">Read project details →</a>
+		  <a class="text-link" id="project-link" href="research.html">Read project details →</a>
 
-		<div class="carousel-dots" aria-label="Project navigation">
-		  <button class="dot active" data-index="0" aria-label="Project 1"></button>
-		  <button class="dot" data-index="1" aria-label="Project 2"></button>
-		  <button class="dot" data-index="2" aria-label="Project 3"></button>
-		  <button class="dot" data-index="3" aria-label="Project 4"></button>
-		</div>
-      </article>
-	</div>
-  </section>
+		  <div class="carousel-dots" aria-label="Project navigation">
+			<button class="dot active" data-index="0" aria-label="Project 1"></button>
+			<button class="dot" data-index="1" aria-label="Project 2"></button>
+			<button class="dot" data-index="2" aria-label="Project 3"></button>
+			<button class="dot" data-index="3" aria-label="Project 4"></button>
+		  </div>
+		</article>
+	  </div>
+	</section>
+
+
 
 
   <section class="section cta">
@@ -232,6 +248,9 @@
   const linkEl = document.getElementById("project-link");
   const dots = document.querySelectorAll(".dot");
 
+  const arrowLeft = document.getElementById("arrow-left");
+  const arrowRight = document.getElementById("arrow-right");
+
   function renderProject(index) {
     const p = projects[index];
 
@@ -273,10 +292,19 @@
     }, 420);
   }
 
-  function autoSlide() {
-    if (isPaused) return;
+  function nextProject() {
     const newIndex = (currentIndex + 1) % projects.length;
     animateToProject(newIndex, "right");
+  }
+
+  function prevProject() {
+    const newIndex = (currentIndex - 1 + projects.length) % projects.length;
+    animateToProject(newIndex, "left");
+  }
+
+  function autoSlide() {
+    if (isPaused) return;
+    nextProject();
   }
 
   function startAutoSlide() {
@@ -301,14 +329,25 @@
     });
   });
 
+  // Arrow navigation
+  arrowLeft.addEventListener("click", prevProject);
+  arrowRight.addEventListener("click", nextProject);
+
   // Pause on hover
   cardEl.addEventListener("mouseenter", pauseAutoSlide);
   cardEl.addEventListener("mouseleave", resumeAutoSlide);
+
+  // Keyboard support (optional but cool)
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") prevProject();
+    if (e.key === "ArrowRight") nextProject();
+  });
 
   // Init
   renderProject(currentIndex);
   startAutoSlide();
 </script>
+
 
 </body>
 </html>

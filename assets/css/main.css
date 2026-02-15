@@ -421,4 +421,143 @@ h2 {
     padding-bottom: var(--space-6);
   }
 }
+/* ============================================
+   Featured Research Carousel (Premium UX)
+============================================ */
+
+.project-carousel {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-carousel:hover {
+  transform: scale(1.02);
+}
+
+/* arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  cursor: pointer;
+  z-index: 5;
+
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.project-carousel:hover .carousel-arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-arrow.left {
+  left: 14px;
+}
+
+.carousel-arrow.right {
+  right: 14px;
+}
+
+.carousel-arrow:hover {
+  transform: translateY(-50%) scale(1.12);
+}
+
+/* subtle gradient hint (shows more content exists) */
+.carousel-fade-left,
+.carousel-fade-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.carousel-fade-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.18), rgba(0,0,0,0));
+}
+
+.carousel-fade-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.18), rgba(0,0,0,0));
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+  z-index: 3;
+  position: relative;
+}
+
+.carousel-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.35;
+  background: currentColor;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-dots .dot.active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.status-pill {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Slide + Fade animation */
+.slide-block {
+  opacity: 1;
+  transform: translateX(0px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+/* outgoing */
+.slide-block.slide-out-left {
+  opacity: 0;
+  transform: translateX(-25px);
+}
+
+.slide-block.slide-out-right {
+  opacity: 0;
+  transform: translateX(25px);
+}
+
+/* incoming start state */
+.slide-block.slide-in-right {
+  opacity: 0;
+  transform: translateX(25px);
+}
+
+.slide-block.slide-in-left {
+  opacity: 0;
+  transform: translateX(-25px);
+}
 
