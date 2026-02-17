@@ -38,16 +38,18 @@ export const tools = [
     link: "tools-pages/sucrose-test-manager.html"
   },
   {
-    id: "eeg-afe-analysis",
-    title: "EEG AFE Analysis Toolkit",
-    desc: "Circuit-level EEG AFE evaluation including SNR, THD, transient response, and nonlinear benchmarking.",
-    tags: ["EEG", "AFE", "Electronics"],
-    status: "Active",
-    featured: true,
-    owner: "Neuroprocessing Team",
-    type: "Team",
-    link: "tools-pages/eeg-afe-analysis.html"
-  }
+  id: "animal-randomizer",
+  title: "Animal Randomizer",
+  desc: "Lightweight reproducible tool for randomized group assignment in rodent studies.",
+  tags: ["Randomization", "Open Tool", "Rodents"],
+  status: "Released v0.1.0",
+  featured: true,
+  owner: "Neuroprocessing Team",
+  type: "Team",
+  link: "tools-pages/animal-randomizer.html"
+}
+
+  
 ];
 
 export const courses = [

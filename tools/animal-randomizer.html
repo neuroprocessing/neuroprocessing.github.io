@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Animal Randomizer | Neuroprocessing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/css/main.css" />
+
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 22px;
+      margin-top: 18px;
+      align-items: start;
+    }
+
+    @media (max-width: 980px) {
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .info-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 18px 55px rgba(0,0,0,0.22);
+      backdrop-filter: blur(10px);
+    }
+
+    .info-box h3 {
+      margin-top: 0;
+      font-size: 1.05rem;
+      color: white;
+    }
+
+    .info-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .info-list li strong {
+      color: rgba(255,255,255,0.92);
+    }
+
+    .section-block {
+      margin-top: 24px;
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.02);
+      transition: 0.3s ease;
+    }
+
+    .section-block:hover {
+      border-color: rgba(0, 200, 255, 0.55);
+      box-shadow: 0 0 0 2px rgba(0,200,255,0.18);
+    }
+
+    .section-block h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: white;
+    }
+
+    .section-block p {
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      max-width: 80ch;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .badge {
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.82);
+    }
+
+    .badge.team {
+      border-color: rgba(0,200,255,0.55);
+      color: rgba(0,200,255,0.95);
+      background: rgba(0,200,255,0.1);
+    }
+
+    .badge.status {
+      border-color: rgba(0,255,140,0.35);
+      color: rgba(0,255,140,0.85);
+      background: rgba(0,255,140,0.08);
+    }
+
+    .badge.release {
+      border-color: rgba(255, 190, 80, 0.35);
+      color: rgba(255, 200, 120, 0.92);
+      background: rgba(255, 180, 80, 0.08);
+    }
+
+    .mini-links {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mini-links a {
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="../index.html" aria-label="Neuroprocessing home">
+      <img src="../assets/images/Logo.png" alt="Neuroprocessing logo" class="logo" />
+      <div>
+        <p class="brand-name">Neuroprocessing</p>
+        <p class="brand-subtitle">Open Neuroscience Systems Lab</p>
+      </div>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="../index.html">Home</a>
+      <a href="../research.html">Research</a>
+      <a href="../tools.html" aria-current="page">Open Tools</a>
+      <a href="../team.html">Team</a>
+      <a href="../media.html">Media</a>
+      <a href="../contact.html" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container fade-in">
+      <p class="eyebrow">Open Tool</p>
+      <h1>Animal Randomizer</h1>
+      <p class="hero-lede">
+        A lightweight open-source tool for reproducible and publication-ready random group assignment
+        in rodent neuroscience studies.
+      </p>
+
+      <div class="badge-row">
+        <span class="badge status">Released</span>
+        <span class="badge release">v0.1.0</span>
+        <span class="badge team">Team Project</span>
+        <span class="badge">Randomization</span>
+        <span class="badge">Rodents</span>
+        <span class="badge">Open Science</span>
+        <span class="badge">CLI Tool</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container detail-grid fade-in">
+
+      <!-- Main content -->
+      <div>
+        <div class="section-block">
+          <h2>Overview</h2>
+          <p>
+            Animal Randomizer is an open-source software tool developed by Neuroprocessing to generate
+            reproducible and transparent group allocation tables for animal experiments.
+            The tool supports neuroscience rodent workflows (rats and mice) and is designed to improve
+            study reliability by enforcing seed-based reproducibility and structured output reporting.
+          </p>
+        </div>
+
+        <div class="section-block">
+          <h2>Scientific Motivation</h2>
+          <p>
+            Random group assignment is a fundamental step in experimental design.
+            Inconsistent or undocumented randomization introduces systematic bias and weakens the reproducibility
+            of behavioral, electrophysiological, and molecular studies. This tool provides a standardized workflow
+            to ensure randomization is auditable, shareable, and directly usable in publications.
+          </p>
+        </div>
+
+        <div class="section-block">
+          <h2>Core Features</h2>
+          <p>
+            The first public release (v0.1.0) includes balanced group assignment, reproducible randomization
+            through seed control, customizable group naming, and CSV export designed for laboratory documentation.
+            Future versions will extend to block randomization, stratified allocation (weight/age/baseline measures),
+            and automated reporting.
+          </p>
+        </div>
+
+        <div class="section-block">
+          <h2>Workflow & Usage</h2>
+          <p>
+            Animal Randomizer is currently provided as a lightweight CLI tool.
+            Researchers specify the number of animals, number of groups (or group names), and an optional seed.
+            The tool generates a structured randomization table that can be directly imported into lab notebooks,
+            Excel sheets, or study management systems.
+          </p>
+        </div>
+
+        <div class="section-block">
+          <h2>Expected Outputs</h2>
+          <p>
+            The software generates publication-ready allocation tables (CSV format) including metadata such as
+            timestamp, randomization seed, and method description. These outputs are suitable for inclusion
+            in supplementary material to strengthen transparency and reproducibility.
+          </p>
+        </div>
+
+        <div class="section-block">
+          <h2>Future Development</h2>
+          <p>
+            This tool is planned to become a module inside a larger open-source animal study management suite
+            developed by Neuroprocessing. Planned upgrades include a graphical user interface (PyQt6),
+            PDF reporting, advanced randomization strategies, and integration with behavioral tracking pipelines.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="info-box">
+        <h3>Tool Info</h3>
+        <ul class="info-list">
+          <li><strong>Status:</strong> Released (v0.1.0)</li>
+          <li><strong>Type:</strong> Team Project</li>
+          <li><strong>Owner:</strong> Neuroprocessing Team</li>
+          <li><strong>Lead Developer:</strong> Ali Mirzakhani</li>
+          <li><strong>Platform:</strong> Python (CLI)</li>
+          <li><strong>License:</strong> MIT</li>
+        </ul>
+
+        <div class="mini-links">
+          <a class="text-link" href="../tools.html">← Back to Open Tools</a>
+
+          <a class="text-link"
+             href="https://neuroprocessing.github.io/animal-randomizer/"
+             target="_blank"
+             rel="noopener noreferrer">
+            Open Tool Page →
+          </a>
+
+          <a class="text-link"
+             href="https://github.com/neuroprocessing/animal-randomizer"
+             target="_blank"
+             rel="noopener noreferrer">
+            GitHub Repository →
+          </a>
+
+          <a class="text-link" href="../contact.html">Request Collaboration →</a>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Neuroprocessing | Open Tools Documentation</p>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
