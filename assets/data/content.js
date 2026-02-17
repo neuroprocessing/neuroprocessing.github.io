@@ -35,7 +35,7 @@ export const tools = [
     featured: true,
     owner: "Ali Mirzakhani",
     type: "Individual",
-    link: "tools-pages/sucrose-test-manager.html"
+    link: "tools/sucrose-test-manager.html"
   },
   {
   id: "animal-randomizer",
@@ -46,7 +46,7 @@ export const tools = [
   featured: true,
   owner: "Neuroprocessing Team",
   type: "Team",
-  link: "tools-pages/animal-randomizer.html"
+  link: "tools/animal-randomizer.html"
 }
 
   
