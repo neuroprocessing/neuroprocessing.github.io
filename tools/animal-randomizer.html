@@ -138,6 +138,54 @@
     .mini-links a {
       font-size: 0.95rem;
     }
+
+    /* ===== BIG ENTER BUTTON ===== */
+    .enter-row {
+      margin-top: 26px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .enter-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-radius: 16px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      border: 1px solid rgba(0, 200, 255, 0.55);
+      background: linear-gradient(135deg, rgba(0,200,255,0.22), rgba(0,120,255,0.14));
+      color: white;
+      text-decoration: none;
+      transition: 0.25s ease;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.4), 0 18px 60px rgba(0,200,255,0.12);
+      backdrop-filter: blur(10px);
+      min-width: 260px;
+    }
+
+    .enter-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 2px rgba(0,200,255,0.18), 0 18px 80px rgba(0,200,255,0.22);
+      border-color: rgba(0, 200, 255, 0.85);
+    }
+
+    .enter-btn span {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .enter-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      max-width: 60ch;
+      line-height: 1.6;
+    }
   </style>
 </head>
 
@@ -182,6 +230,21 @@
         <span class="badge">Open Science</span>
         <span class="badge">CLI Tool</span>
       </div>
+
+      <!-- BIG ENTER BUTTON -->
+      <div class="enter-row">
+        <a class="enter-btn"
+           href="https://neuroprocessing.github.io/animal-randomizer/"
+           target="_blank"
+           rel="noopener noreferrer">
+          🚀 Enter Tool Page <span>→</span>
+        </a>
+
+        <p class="enter-sub">
+          Access the full documentation, installation guide, usage examples, and the official release page.
+        </p>
+      </div>
+
     </div>
   </section>
 
