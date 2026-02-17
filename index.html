@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Neuroprocessing | Reproducible AI Neuroscience</title>
+  <title>Neuroprocessing | Open Neuroscience Systems Lab</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -10,7 +10,141 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Featured slider */
+    .featured-slider-wrap {
+      position: relative;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .featured-slider {
+      display: flex;
+      gap: 18px;
+      transition: transform 0.6s ease;
+      will-change: transform;
+    }
+
+    .featured-card {
+      min-width: 320px;
+      max-width: 320px;
+      flex: 0 0 auto;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+    }
+
+    .featured-card:hover {
+      transform: scale(1.04);
+      border: 1px solid rgba(0, 200, 255, 0.65);
+      box-shadow: 0 0 26px rgba(0, 200, 255, 0.25);
+    }
+
+    .featured-meta {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .featured-owner {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+
+    .featured-owner span {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 200, 255, 0.35);
+      background: rgba(0, 200, 255, 0.12);
+    }
+
+    /* Arrows */
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, border 0.2s ease, box-shadow 0.2s ease;
+      z-index: 5;
+    }
+
+    .slider-arrow:hover {
+      transform: translateY(-50%) scale(1.08);
+      border: 1px solid rgba(0, 200, 255, 0.55);
+      box-shadow: 0 0 18px rgba(0, 200, 255, 0.22);
+    }
+
+    .slider-arrow svg {
+      width: 20px;
+      height: 20px;
+      opacity: 0.9;
+    }
+
+    .arrow-left {
+      left: 12px;
+    }
+
+    .arrow-right {
+      right: 12px;
+    }
+
+    /* Glow when mouse enters section */
+    .glow-section {
+      border-radius: 22px;
+      transition: box-shadow 0.35s ease, border 0.35s ease;
+      border: 1px solid transparent;
+    }
+
+    .glow-section:hover {
+      border: 1px solid rgba(0, 200, 255, 0.55);
+      box-shadow: 0 0 30px rgba(0, 200, 255, 0.12);
+    }
+
+    /* Hint that slider continues */
+    .fade-edge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 120px;
+      background: linear-gradient(to left, rgba(0,0,0,0.95), rgba(0,0,0,0));
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    .fade-edge-left {
+      left: 0;
+      right: auto;
+      background: linear-gradient(to right, rgba(0,0,0,0.95), rgba(0,0,0,0));
+    }
+  </style>
 </head>
+
 <body>
 <header class="site-header">
   <div class="container header-inner">
@@ -18,7 +152,7 @@
       <img src="assets/images/Logo.png" alt="Neuroprocessing logo" class="logo" />
       <div>
         <p class="brand-name">Neuroprocessing</p>
-        <p class="brand-subtitle">Open Neurotechnology & Systems Neuroscience Team</p>
+        <p class="brand-subtitle">Open Neuroscience Systems Lab</p>
       </div>
     </a>
 
@@ -34,317 +168,267 @@
 </header>
 
 <main>
+
+  <!-- HERO -->
   <section class="hero">
-    <div class="container hero-grid">
+    <div class="container hero-grid fade-in">
       <div>
-        <p class="eyebrow">Interdisciplinary Research Infrastructure</p>
-        <h1>We build reproducible neuroscience systems, from wet-lab experiments to AI-driven analysis</h1>
+        <p class="eyebrow">Open Research Infrastructure</p>
+        <h1>We build reproducible AI-based neuroscience systems.</h1>
         <p class="hero-lede">
-          Neuroprocessing is an interdisciplinary neuroscience team developing open and reproducible research infrastructure across experimental biology, behavioral phenotyping, embedded neuroengineering, and computational neuroscience. We integrate animal models, molecular validation, and neural recording workflows with scalable AI pipelines to support rigorous, transparent, and translational neuroscience research.
+          Neuroprocessing is a research-driven platform focused on robust neural data methods,
+          transparent computational workflows, and translation-ready neurotechnology tools.
         </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="contact.html">Research Collaboration</a>
-          <a class="btn btn-outline" href="tools.html">Explore Open Tools</a>
-        </div>
-        <div class="meta-row" aria-label="Research characteristics">
-          <span class="pill">Reproducibility first</span>
-          <span class="pill">Wet-lab to AI pipeline</span>
-          <span class="pill">Translational neurotechnology roadmap</span>
-        </div>
       </div>
 
-      <aside class="hero-panel" aria-label="Research signals">
+      <aside class="hero-panel">
         <div class="panel-header">
-          <strong>Research Signals</strong>
+          <strong>Lab Signals</strong>
           <span class="panel-note">2026 Program</span>
         </div>
         <ul class="signal-list">
-          <li><strong>Neuroengineering Systems:</strong> Arduino/Raspberry Pi-based acquisition, experimental automation, and scalable instrumentation.</li>
-          <li><strong>Neural Data Analytics:</strong> EEG preprocessing, artifact modeling, SNR optimization, and reproducible signal pipelines.</li>
-          <li><strong>Experimental Neuroscience:</strong> animal models, behavioral assays, histology, cell culture, and molecular workflows.</li>
-          <li><strong>Multimodal AI & Validation:</strong> interpretable machine learning, benchmarking, documentation, and version-controlled reports.</li>
+          <li><strong>Neural Dynamics</strong> state-space and time-series inference.</li>
+          <li><strong>Multimodal AI</strong> EEG, imaging, and behavioral integration.</li>
+          <li><strong>Open Validation</strong> benchmarks, QC, and versioned reporting.</li>
+          <li><strong>Future Neurotech</strong> closed-loop and translational systems.</li>
         </ul>
       </aside>
     </div>
   </section>
 
+  <!-- FEATURED SECTION -->
   <section class="section">
-    <div class="container split-grid">
+    <div class="container glow-section fade-in">
       <div class="section-header">
-        <p class="eyebrow">Mission</p>
-        <h2>Scientific rigor with a long-horizon neurotechnology vision.</h2>
+        <p class="eyebrow">Featured</p>
+        <h2>Highlighted projects, tools, and educational resources.</h2>
         <p class="section-intro">
-         Neuroprocessing exists to develop reproducible neuroscience workflows that connect experimental biology, behavioral studies, neural recording systems, and computational modeling.
-		 We build open tools, standardized protocols, and validated pipelines designed to support academic collaborations, grant-driven research, and long-term translation into scalable neurotechnology platforms.
+          Featured content is automatically selected from our internal registry.
+          Each item links to its dedicated detail page.
         </p>
       </div>
+
+      <div class="featured-slider-wrap">
+        <div class="slider-arrow arrow-left" id="arrowLeft" aria-label="Previous">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </div>
+
+        <div class="slider-arrow arrow-right" id="arrowRight" aria-label="Next">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </div>
+
+        <div class="fade-edge fade-edge-left"></div>
+        <div class="fade-edge"></div>
+
+        <div class="featured-slider" id="featured-slider"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="section">
+    <div class="container fade-in glow-section">
+      <div class="section-header">
+        <p class="eyebrow">Mission</p>
+        <h2>Scientific rigor with long-horizon AI vision.</h2>
+        <p class="section-intro">
+          Neuroprocessing exists to produce reproducible neuroscience research,
+          release high-quality open tools, and support collaborations that grow into
+          grant-funded projects, postdoctoral pathways, and translational initiatives.
+        </p>
+      </div>
+
       <div class="card-grid">
         <article class="card">
           <h3>Method Transparency</h3>
-          <p>Every pipeline is designed with explicit preprocessing assumptions, quality-control standards, statistical validation, and reproducible reporting.</p>
+          <p>
+            Each pipeline includes explicit preprocessing assumptions, QC standards,
+            and reproducible reports.
+          </p>
         </article>
+
         <article class="card">
           <h3>Open Collaboration</h3>
-          <p>We collaborate with laboratories and interdisciplinary teams through shared protocols, open datasets, and co-developed experimental and computational tools.</p>
+          <p>
+            We co-develop with labs and researchers through shared protocols,
+            datasets, and modular tooling.
+          </p>
         </article>
+
         <article class="card">
-          <h3>Translational Roadmap</h3>
-          <p>Our research outputs are structured to evolve into deployable neurotechnology systems with real-world scalability and future clinical relevance.</p>
+          <h3>AI Translation</h3>
+          <p>
+            Research outputs are designed to mature into deployable neurotechnology
+            systems over time.
+          </p>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <p class="eyebrow">Research Focus Areas</p>
-        <h2>Core domains shaping the Neuroprocessing roadmap.</h2>
-      </div>
-      <div class="card-grid">
-        <article class="card">
-          <h3>Embedded Neuroengineering</h3>
-          <p>Low-cost experimental automation and instrumentation using Arduino, Raspberry Pi, and integrated sensor systems.</p>
-        </article>
-        <article class="card">
-          <h3>Neuroimaging</h3>
-          <p>Interpretable machine learning for imaging and multimodal neuroscience data.</p>
-        </article>
-        <article class="card">
-          <h3>Experimental & Molecular Neuroscience</h3>
-          <p>Animal models, behavioral phenotyping, histology, molecular assays, and cell culture workflows for mechanistic validation.</p>
-        </article>
-        <article class="card">
-          <h3>Multimodal AI & Systems Biology</h3>
-          <p>Integrating behavioral, physiological, and molecular data into interpretable machine learning frameworks and systems-level inference.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-	<section class="section">
-	  <div class="container split-grid">
-		<div class="section-header">
-		  <p class="eyebrow">Featured Research</p>
-		  <h2>Active projects shaping the Neuroprocessing roadmap.</h2>
-		  <p class="section-intro">
-			Our research spans neural engineering, behavioral neuroscience, molecular validation,
-			and reproducible computational pipelines. The projects below represent our current focus areas
-			and long-term translational direction.
-		  </p>
-		  <a class="text-link" href="research.html">Explore full research portfolio</a>
-		</div>
-
-		<article class="card project-carousel slide-block" id="project-card" aria-label="Featured projects">
-		  
-		  <!-- subtle gradient hints -->
-		  <div class="carousel-fade-left"></div>
-		  <div class="carousel-fade-right"></div>
-
-		  <!-- arrows -->
-		  <button class="carousel-arrow left" id="arrow-left" aria-label="Previous project">
-			&#10094;
-		  </button>
-
-		  <button class="carousel-arrow right" id="arrow-right" aria-label="Next project">
-			&#10095;
-		  </button>
-
-		  <div class="carousel-header">
-			<h3 id="project-title">Multimodal Alzheimer’s Phenotyping</h3>
-			<span class="pill status-pill" id="project-status">Active</span>
-		  </div>
-
-		  <p id="project-desc">
-			Integrating behavioral motor skill analysis with electrophysiology and molecular validation
-			in preclinical Alzheimer’s disease models.
-		  </p>
-
-		  <div class="meta-row" id="project-tags">
-			<span class="pill">Behavior</span>
-			<span class="pill">EEG</span>
-			<span class="pill">Molecular</span>
-		  </div>
-
-		  <a class="text-link" id="project-link" href="research.html">Read project details →</a>
-
-		  <div class="carousel-dots" aria-label="Project navigation">
-			<button class="dot active" data-index="0" aria-label="Project 1"></button>
-			<button class="dot" data-index="1" aria-label="Project 2"></button>
-			<button class="dot" data-index="2" aria-label="Project 3"></button>
-			<button class="dot" data-index="3" aria-label="Project 4"></button>
-		  </div>
-		</article>
-	  </div>
-	</section>
-
-
-
-
+  <!-- CTA -->
   <section class="section cta">
-    <div class="container cta-card">
+    <div class="container cta-card fade-in glow-section">
       <div>
         <p class="eyebrow">Collaboration</p>
-        <h2>Collaborate on open neuroscience infrastructure and translational neurotechnology.</h2>
+        <h2>Build open neuroscience systems with us.</h2>
         <p class="section-intro">
-          We welcome collaborations with academic laboratories, neuroscience groups, and translational partners interested in reproducible experimental workflows, embedded neuroengineering, multimodal data integration, and AI-enabled neuroscience tools.
+          We welcome academic labs, early-career researchers, and translational partners
+          for joint research, open tool-building, and reproducible neurotechnology development.
         </p>
       </div>
-      <div class="cta-actions">
-        <a class="btn btn-primary" href="contact.html">Start Collaboration Dialogue</a>
-        <a class="btn btn-outline" href="research.html">Read Research Agenda</a>
-      </div>
+
+      <article class="card">
+        <ul class="meta-list">
+          <li><strong>Research partnerships:</strong> joint methods and shared datasets.</li>
+          <li><strong>Open tools:</strong> pipeline modules and reproducibility frameworks.</li>
+          <li><strong>Educational content:</strong> tutorials, workshops, and training.</li>
+        </ul>
+
+        <a class="text-link" href="contact.html" style="margin-top: 12px; display:inline-block;">
+          Start collaboration dialogue →
+        </a>
+      </article>
     </div>
   </section>
+
 </main>
 
 <footer class="site-footer">
   <div class="container">
-    <p>&copy; 2026 Neuroprocessing | Open Neurotechnology & Systems Neuroscience Team</p>
+    <p>&copy; 2026 Neuroprocessing | Open Neuroscience Systems Lab</p>
   </div>
 </footer>
 
-<script>
-  const projects = [
-    {
-      title: "Multimodal Alzheimer’s Phenotyping",
-      desc: "Integrating behavioral motor skill analysis with electrophysiology and molecular validation in preclinical Alzheimer’s disease models.",
-      tags: ["Behavior", "EEG", "Molecular"],
-      status: "Active",
-      link: "research.html"
-    },
-    {
-      title: "EEG Acquisition & Analog Front-End Optimization",
-      desc: "Designing robust EEG acquisition workflows with SNR/THD optimization, artifact modeling, and reproducible preprocessing pipelines.",
-      tags: ["EEG", "Neuroengineering", "Signal QC"],
-      status: "In Progress",
-      link: "research.html"
-    },
-    {
-      title: "PET Template-Based SUVR Quantification",
-      desc: "Atlas-driven PET quantification workflows using rat templates and standardized SUVR pipelines for reproducible neuroimaging studies.",
-      tags: ["PET", "SUVR", "Atlas"],
-      status: "Active",
-      link: "research.html"
-    },
-    {
-      title: "Embedded Experimental Automation Platform",
-      desc: "Building scalable behavioral and physiological experiment setups using Arduino and Raspberry Pi for data acquisition and automation.",
-      tags: ["Arduino", "Raspberry Pi", "Automation"],
-      status: "Prototype",
-      link: "research.html"
+<script type="module">
+  import { projects, tools, courses } from "./assets/data/content.js";
+
+  const slider = document.getElementById("featured-slider");
+  const arrowLeft = document.getElementById("arrowLeft");
+  const arrowRight = document.getElementById("arrowRight");
+
+  let featuredItems = [];
+
+  function buildFeaturedRegistry() {
+    const featuredProjects = projects
+      .filter(p => p.featured)
+      .map(p => ({ ...p, category: "Project" }));
+
+    const featuredTools = tools
+      .filter(t => t.featured)
+      .map(t => ({ ...t, category: "Tool" }));
+
+    const featuredCourses = courses
+      .filter(c => c.featured)
+      .map(c => ({ ...c, category: "Course" }));
+
+    featuredItems = [...featuredProjects, ...featuredTools, ...featuredCourses];
+  }
+
+  function createFeaturedCard(item) {
+    const tagsHTML = item.tags
+      ? item.tags.map(tag => `<span class="pill">${tag}</span>`).join("")
+      : "";
+
+    const statusHTML = item.status ? `<span class="pill">${item.status}</span>` : "";
+    const yearHTML = item.year ? `<span class="pill">${item.year}</span>` : "";
+    const categoryHTML = item.category ? `<span class="pill">${item.category}</span>` : "";
+
+    return `
+      <article class="card featured-card" onclick="window.location.href='${item.link}'">
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+
+        <div class="featured-meta">
+          ${categoryHTML}
+          ${statusHTML}
+          ${yearHTML}
+          ${tagsHTML}
+        </div>
+
+        <div class="featured-owner">
+          <span>${item.type || "Team"}</span>
+          <span>${item.owner || "Neuroprocessing"}</span>
+        </div>
+
+        <a class="text-link" href="${item.link}" style="margin-top:12px; display:inline-block;">
+          More details →
+        </a>
+      </article>
+    `;
+  }
+
+  function renderFeatured() {
+    if (!featuredItems.length) {
+      slider.innerHTML = `
+        <article class="card featured-card">
+          <h3>No featured content yet</h3>
+          <p>
+            Featured items will appear here automatically once marked as <strong>featured: true</strong>
+            in the content registry.
+          </p>
+        </article>
+      `;
+      return;
     }
-  ];
 
+    slider.innerHTML = featuredItems.map(createFeaturedCard).join("");
+  }
+
+  // Slider logic
   let currentIndex = 0;
-  let intervalId = null;
-  let isPaused = false;
+  const cardWidth = 338; // 320 + gap
+  let autoSlideTimer = null;
 
-  const cardEl = document.getElementById("project-card");
-  const titleEl = document.getElementById("project-title");
-  const descEl = document.getElementById("project-desc");
-  const statusEl = document.getElementById("project-status");
-  const tagsEl = document.getElementById("project-tags");
-  const linkEl = document.getElementById("project-link");
-  const dots = document.querySelectorAll(".dot");
-
-  const arrowLeft = document.getElementById("arrow-left");
-  const arrowRight = document.getElementById("arrow-right");
-
-  function renderProject(index) {
-    const p = projects[index];
-
-    titleEl.textContent = p.title;
-    descEl.textContent = p.desc;
-    statusEl.textContent = p.status;
-    linkEl.href = p.link;
-
-    tagsEl.innerHTML = "";
-    p.tags.forEach(tag => {
-      const span = document.createElement("span");
-      span.className = "pill";
-      span.textContent = tag;
-      tagsEl.appendChild(span);
-    });
-
-    dots.forEach(d => d.classList.remove("active"));
-    dots[index].classList.add("active");
+  function updateSliderPosition() {
+    slider.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
   }
 
-  function animateToProject(newIndex, direction = "right") {
-    if (newIndex === currentIndex) return;
-
-    const outClass = direction === "right" ? "slide-out-left" : "slide-out-right";
-    const inStartClass = direction === "right" ? "slide-in-right" : "slide-in-left";
-
-    cardEl.classList.add(outClass);
-
-    setTimeout(() => {
-      renderProject(newIndex);
-
-      cardEl.classList.remove(outClass);
-
-      cardEl.classList.add(inStartClass);
-      void cardEl.offsetWidth; // force reflow
-      cardEl.classList.remove(inStartClass);
-
-      currentIndex = newIndex;
-    }, 420);
+  function slideNext() {
+    if (!featuredItems.length) return;
+    currentIndex = (currentIndex + 1) % featuredItems.length;
+    updateSliderPosition();
   }
 
-  function nextProject() {
-    const newIndex = (currentIndex + 1) % projects.length;
-    animateToProject(newIndex, "right");
+  function slidePrev() {
+    if (!featuredItems.length) return;
+    currentIndex = (currentIndex - 1 + featuredItems.length) % featuredItems.length;
+    updateSliderPosition();
   }
 
-  function prevProject() {
-    const newIndex = (currentIndex - 1 + projects.length) % projects.length;
-    animateToProject(newIndex, "left");
-  }
-
-  function autoSlide() {
-    nextProject();
-  }
+  arrowRight.addEventListener("click", slideNext);
+  arrowLeft.addEventListener("click", slidePrev);
 
   function startAutoSlide() {
-    if (intervalId) clearInterval(intervalId);
-    intervalId = setInterval(autoSlide, 5000);
+    stopAutoSlide();
+    autoSlideTimer = setInterval(slideNext, 5200);
   }
 
-  function pauseAutoSlide() {
-    isPaused = true;
+  function stopAutoSlide() {
+    if (autoSlideTimer) clearInterval(autoSlideTimer);
   }
 
-  function resumeAutoSlide() {
-    isPaused = false;
-  }
-
-  // Click dots
-  dots.forEach(dot => {
-    dot.addEventListener("click", () => {
-      const newIndex = parseInt(dot.dataset.index);
-      const direction = newIndex > currentIndex ? "right" : "left";
-      animateToProject(newIndex, direction);
-    });
-  });
-
-  // Arrow navigation
-  arrowLeft.addEventListener("click", prevProject);
-  arrowRight.addEventListener("click", nextProject);
-
-
-
-  // Keyboard support (optional but cool)
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") prevProject();
-    if (e.key === "ArrowRight") nextProject();
-  });
-
-  // Init
-  renderProject(currentIndex);
+  // Auto slide should continue, but hover adds glow already (no pause)
   startAutoSlide();
-</script>
 
+  // Fade-in animation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+  // INIT
+  buildFeaturedRegistry();
+  renderFeatured();
+  updateSliderPosition();
+</script>
 
 </body>
 </html>
