@@ -10,7 +10,38 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .media-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
+    }
+
+    .media-card:hover {
+      transform: scale(1.03);
+      border: 1px solid rgba(0, 200, 255, 0.65);
+      box-shadow: 0 0 24px rgba(0, 200, 255, 0.25);
+    }
+
+    .coming-soon {
+      opacity: 0.75;
+      font-size: 0.95rem;
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px dashed rgba(255,255,255,0.25);
+    }
+  </style>
 </head>
+
 <body>
 <header class="site-header">
   <div class="container header-inner">
@@ -35,112 +66,101 @@
 
 <main>
   <section class="hero">
-    <div class="container hero-grid">
+    <div class="container hero-grid fade-in">
       <div>
-        <p class="eyebrow">Media & Education</p>
-        <h1>Open learning resources for neuroscience, AI, and reproducible research.</h1>
+        <p class="eyebrow">Media & Outreach</p>
+        <h1>Workshops, tutorials, and educational neuroscience engineering content.</h1>
         <p class="hero-lede">
-          Neuroprocessing develops educational content to help researchers and students
-          build strong computational neuroscience foundations, from signal processing
-          to multimodal AI and real lab workflows.
+          Neuroprocessing publishes practical learning material designed for neuroscience students,
+          engineers, and interdisciplinary research teams.
         </p>
       </div>
 
       <aside class="hero-panel">
         <div class="panel-header">
-          <strong>Current Focus</strong>
-          <span class="panel-note">Work in progress</span>
+          <strong>Planned Content</strong>
+          <span class="panel-note">Educational roadmap</span>
         </div>
         <ul class="signal-list">
-          <li><strong>Python for Neuroscience:</strong> structured course series (in development).</li>
-          <li><strong>Workshops:</strong> planned training sessions for labs and students.</li>
-          <li><strong>Tool demos:</strong> practical tutorials for open-source workflows.</li>
+          <li><strong>Python for Neuroscience</strong> (course series).</li>
+          <li><strong>Workshops</strong> on PET, EEG, and multimodal pipelines.</li>
+          <li><strong>Tool walkthroughs</strong> for lab software adoption.</li>
         </ul>
       </aside>
     </div>
   </section>
 
   <section class="section">
-    <div class="container">
+    <div class="container fade-in">
       <div class="section-header">
-        <p class="eyebrow">Upcoming YouTube Series</p>
-        <h2>Python for Neuroscience (Course Roadmap)</h2>
-        <p>
-          We are currently preparing a structured educational series designed for neuroscience students
-          who want to build real-world skills in computational research.
+        <p class="eyebrow">Educational Series</p>
+        <h2>Upcoming content and active development tracks.</h2>
+        <p class="section-intro">
+          This section highlights planned educational programs. Video links will be added as soon as publishing begins.
         </p>
       </div>
 
       <div class="card-grid">
-        <article class="card">
-          <h3>Foundations</h3>
-          <p>Python basics, scientific computing, and data handling for neuroscience projects.</p>
+        <article class="card media-card">
+          <h3>Python for Neuroscience</h3>
+          <p>
+            A structured training program covering Python fundamentals, signal processing,
+            neuroscience datasets, and reproducible analysis pipelines.
+          </p>
+          <div class="meta-row">
+            <span class="pill">Coming Soon</span>
+            <span class="pill">Course</span>
+          </div>
         </article>
 
-        <article class="card">
-          <h3>Signal Processing</h3>
-          <p>EEG/EMG fundamentals, filtering, artifact removal, and quality control workflows.</p>
+        <article class="card media-card">
+          <h3>Neuroprocessing Workshop Series</h3>
+          <p>
+            Workshops designed around PET SUVR analysis, EEG systems engineering,
+            and professional lab workflow automation.
+          </p>
+          <div class="meta-row">
+            <span class="pill">2026</span>
+            <span class="pill">Workshop</span>
+          </div>
         </article>
 
-        <article class="card">
-          <h3>Neuro-AI Pipelines</h3>
-          <p>Machine learning foundations, reproducible evaluation, and multimodal integration.</p>
-        </article>
-
-        <article class="card">
-          <h3>Real Lab Projects</h3>
-          <p>Hands-on projects based on experimental neuroscience workflows and animal studies.</p>
+        <article class="card media-card">
+          <h3>Open Tool Walkthroughs</h3>
+          <p>
+            Short technical videos explaining how to use Neuroprocessing open-source tools,
+            from installation to real experimental use.
+          </p>
+          <div class="meta-row">
+            <span class="pill">Tutorial</span>
+            <span class="pill">YouTube</span>
+          </div>
         </article>
       </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container split-grid">
-      <div class="section-header">
-        <p class="eyebrow">Workshops</p>
-        <h2>Planned training sessions and research skill programs.</h2>
-        <p>
-          We aim to organize practical workshops for neuroscience researchers focusing on reproducibility,
-          computational workflows, and AI-enabled neurotechnology development.
-        </p>
+      <div style="margin-top:22px;" class="coming-soon">
+        📌 <strong>Note:</strong> This page is currently under active development.  
+        As soon as content is published, direct links will be added here.
       </div>
-
-      <article class="card">
-        <ul class="meta-list">
-          <li><strong>Workshop 01:</strong> Reproducible Neuroscience Pipelines (EEG + Behavior).</li>
-          <li><strong>Workshop 02:</strong> AI for Neuroscience — practical evaluation and benchmarking.</li>
-          <li><strong>Workshop 03:</strong> Neurotechnology Systems — Arduino/Raspberry Pi lab integration.</li>
-        </ul>
-      </article>
-    </div>
-  </section>
-
-  <section class="section cta">
-    <div class="container cta-card">
-      <div>
-        <p class="eyebrow">Collaboration</p>
-        <h2>Interested in hosting a workshop or collaborating on educational content?</h2>
-        <p>
-          We are open to partnerships with research labs, academic institutions, and student communities.
-        </p>
-      </div>
-
-      <article class="card">
-        <ul class="meta-list">
-          <li><strong>Lab-based training:</strong> reproducible EEG and behavior pipelines.</li>
-          <li><strong>Course collaborations:</strong> co-developed learning series and projects.</li>
-          <li><strong>Open content:</strong> joint educational resources for the community.</li>
-        </ul>
-      </article>
     </div>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="container">
-    <p>&copy; 2026 Neuroprocessing | Media and education collaborations welcome</p>
+    <p>&copy; 2026 Neuroprocessing | Education and workshop inquiries welcome</p>
   </div>
 </footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
